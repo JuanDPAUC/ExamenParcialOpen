@@ -50,11 +50,11 @@ export class Reservations implements BaseEntity {
     this.#weatherTemperature = value;
   }
 
-  get reserverdAt(): number {
+  get reserverdAt(): string {
     return this.#reserverdAt;
   }
 
-  set reserverdAt(value: number) {
+  set reserverdAt(value: string) {
     this.#reserverdAt = value;
   }
 
@@ -71,11 +71,11 @@ export class Reservations implements BaseEntity {
   #participantName: string;
   #participants : number;
   #weatherTemperature: number;
-  #reserverdAt: number;
+  #reserverdAt: string;
   #aquaticCenter: AquaticCenter | null;
 
   constructor(reservations: { id:number, aquaticCenterId:number, activityType:string, participantName:string,
-    participants:number, weatherTemperature:number , reservedAt:number, aquaticCenter?: null
+    participants:number, weatherTemperature:number , reservedAt:string, aquaticCenter?: null
   }) {
     this.#id = reservations.id;
     this.#aquaticCenterId = reservations.aquaticCenterId;
