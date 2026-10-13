@@ -1,4 +1,3 @@
-import {HttpClient} from '@angular/common/http';
 import {AquaticCenter} from '../domain/model/aquatic-center.entity';
 import {DestroyRef, inject, Injectable, signal} from '@angular/core';
 import {Reservations} from '../domain/model/reservations.entity';
