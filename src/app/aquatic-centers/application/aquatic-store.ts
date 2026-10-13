@@ -50,17 +50,12 @@ export class AquaticStore {
   }
 
   private loadReservations(): void {
-    this.loadingSignal.set(true);
-    this.errorSignal.set(null);
     this.aquaticCenterApi.getReservations().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: reservations => {
-        console.log(reservations);
         this.reservationSignal.set(reservations);
-        this.loadingSignal.set(false);
       },
       error: err => {
         this.errorSignal.set(this.formatError(err, 'Failed to load reservations'));
-        this.loadingSignal.set(false);
       }
     });
   }

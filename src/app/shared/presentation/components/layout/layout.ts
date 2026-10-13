@@ -4,7 +4,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
-import {FooterContent} from '../footer-content/footer-content';
 
 @Component({
   selector: 'app-layout',
@@ -12,8 +11,7 @@ import {FooterContent} from '../footer-content/footer-content';
     RouterLink, RouterLinkActive,
     MatSidenavModule, MatButtonModule,
     MatIconModule,
-    MatListModule,
-    FooterContent],
+    MatListModule],
   templateUrl: './layout.html',
   styleUrl: './layout.css'
 })

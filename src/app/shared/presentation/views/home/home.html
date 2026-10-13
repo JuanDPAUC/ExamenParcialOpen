@@ -1,14 +1,21 @@
 <div class="container-with-spacing">
   <h1>Home</h1>
   <h2>Smart Reservations and Capacity Management for Aquatic Centers.</h2>
-  <section aria-labelledby="My Aquatic Centers">
-    <h3 id="My Aquatic Centers"> My Aquatic Centers</h3 >
-    @if (aquaticStore.aquaticCenters().length === 0) {
-      <p> {{ 'home.empty' }}</p>
+  <section aria-labelledby="my-aquatic-centers">
+    <h3 id="my-aquatic-centers">My Aquatic Centers</h3>
+    @if (aquaticStore.error()) {
+      <p role="alert">{{ aquaticStore.error() }}</p>
+    }
+    @if (aquaticStore.loading()) {
+      <p>Loading aquatic centers...</p>
+    } @else if (aquaticStore.aquaticCenters().length === 0) {
+      <p>No aquatic centers found.</p>
     } @else {
       <div class="research-grid">
-        @for (aquaticCenters of aquaticStore.aquaticCenters(); track aquaticCenters.id){
-          <app-aquatic-center-summary [aquaticCenter]=""/>
+        @for (aquaticCenter of aquaticStore.aquaticCenters(); track aquaticCenter.id) {
+          <app-aquatic-center-summary
+            [aquaticCenter]="aquaticCenter"
+            [reservations]="aquaticStore.reservations()"/>
         }
       </div>
     }

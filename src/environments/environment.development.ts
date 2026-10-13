@@ -1,7 +1,7 @@
 export const environment = {
   development: false,
 
-  platformProviderApiBaseUrl: 'http://localhos:3000',
+  platformProviderApiBaseUrl: 'http://localhost:3000',
   outdoorCenterProviderApiEndpointPath: '/aquatic-centers',
   reservationsProviderApiEndpointPath: '/reservations',
 

@@ -3,7 +3,15 @@
     <mat-card-title>{{ aquaticCenter().name }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p> {{ reservation().participantName}}</p>
-    <p>{{ reservation().participants}}</p>
+    <p>Activity: {{ aquaticCenter().activityType }}</p>
+    <p>Capacity: {{ aquaticCenter().capacity }}</p>
+    <h4>Reservations</h4>
+    @if (centerReservations().length === 0) {
+      <p>No reservations yet.</p>
+    } @else {
+      @for (reservation of centerReservations(); track reservation.id) {
+        <p>{{ reservation.participantName }} — {{ reservation.participants }} participant(s)</p>
+      }
+    }
   </mat-card-content>
 </mat-card>
