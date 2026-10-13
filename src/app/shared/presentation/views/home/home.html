@@ -1,1 +1,16 @@
-<section><h1>ACME Learning Center</h1><p>Welcome to the learning center.</p></section>
+<div class="container-with-spacing">
+  <h1>Home</h1>
+  <h2>Smart Reservations and Capacity Management for Aquatic Centers.</h2>
+  <section aria-labelledby="My Aquatic Centers">
+    <h3 id="My Aquatic Centers"> My Aquatic Centers</h3 >
+    @if (aquaticStore.aquaticCenters().length === 0) {
+      <p> {{ 'home.empty' }}</p>
+    } @else {
+      <div class="research-grid">
+        @for (aquaticCenters of aquaticStore.aquaticCenters(); track aquaticCenters.id){
+          <app-aquatic-center-summary [aquaticCenter]=""/>
+        }
+      </div>
+    }
+  </section>
+</div>
